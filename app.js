@@ -14,9 +14,9 @@ Model# M102988
 Serial# 1234998871109
 
 **/
-
-var machine = "http://13.56.240.38:3001/gumball";
-var endpoint = "http://13.56.240.38:3001/order";
+var args = {headers: {"Host":"localapi"}};
+var machine = "http://13.56.240.38:8000/gumball";
+var endpoint = "http://13.56.240.38:8000/order";
 
 // added in v3: handlebars
 // https://www.npmjs.org/package/express3-handlebars
@@ -86,7 +86,7 @@ var page = function( req, res, state, ts, status ) {
 
     var client = new Client();
             var count = "";
-            client.get( machine, 
+            client.get( machine, args 
                 function(data, response_raw){
                     console.log(data);
                     //for(var key in data) {
@@ -124,7 +124,7 @@ var order = function( req, res, state, ts ) {
 
     var client = new Client();
             var count = 0;
-            client.post( endpoint, 
+            client.post( endpoint, args
                 function(data, response_raw) {
                     jsdata = JSON.parse(data)
                     for(var key in jsdata) {
@@ -204,7 +204,7 @@ app.post('/', handle_post ) ;
 
 console.log( "Server running on Port 2020..." ) ;
 
-app.listen(2020);
+app.listen(process.env.PORT || 2020);
 
 
 /**
