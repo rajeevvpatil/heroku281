@@ -15,8 +15,8 @@ Serial# 1234998871109
 
 **/
 
-var machine = "http://localhost:3001/gumball";
-var endpoint = "http://localhost:3001/order";
+var machine = "http://13.56.240.38:3001/gumball";
+var endpoint = "http://13.56.240.38:3001/order";
 
 // added in v3: handlebars
 // https://www.npmjs.org/package/express3-handlebars
