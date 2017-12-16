@@ -86,7 +86,7 @@ var page = function( req, res, state, ts, status ) {
 
     var client = new Client();
             var count = "";
-            client.get( machine, args 
+            client.get( machine, args, 
                 function(data, response_raw){
                     console.log(data);
                     //for(var key in data) {
@@ -124,7 +124,7 @@ var order = function( req, res, state, ts ) {
 
     var client = new Client();
             var count = 0;
-            client.post( endpoint, args
+            client.post( endpoint, args,
                 function(data, response_raw) {
                     jsdata = JSON.parse(data)
                     for(var key in jsdata) {
